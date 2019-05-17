@@ -14,7 +14,7 @@ mongoose.connect('mongodb://altwar:qwerty123@ds255329.mlab.com:55329/altwars', {
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var apiRouter = require('./routes/api/api');
+var apiRouter = require('./routes/api');
 var app = express();
 
 // view engine setup
