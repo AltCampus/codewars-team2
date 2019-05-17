@@ -3,18 +3,20 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 var session = require('express-session');
-var MongoStore = require('connect-mongo')(session);
-var passport = require('passport');
+const MongoStore = require('connect-mongo')(session);
+var authController = require('./controller/authController');
+
+mongoose.connect('mongodb://localhost/codewarsDB', {useNewUrlParser: true}, (err) => {
+  err ? console.log('not connected') : console.log('connected')
+});
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-
+var apiRouter = require('./routes/api/api');
 var app = express();
-mongoose.connect("mongodb://localhost/bookList", { useNewUrlParser: true }, (err) => {
-	err ? console.log(err, 'not connected to mongodb') : console.log('Successfully connected to mongodb');
-})
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -25,8 +27,17 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(session({
+  secret: 'ninjas everywhere',
+  resave: false,
+  saveUninitialized: true,
+  store: new MongoStore({ mongooseConnection: mongoose.connection })
+}));
+
+app.use(authController.sessions);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
