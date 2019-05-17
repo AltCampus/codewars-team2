@@ -7,7 +7,12 @@ const mongoose = require('mongoose');
 var session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 
-mongoose.connect('mongodb://localhost/codewarsDB', {useNewUrlParser: true}, (err) => {
+const fetch = require('node-fetch');
+
+fetch(`https://www.codewars.com/api/v1/users/klassynihal`).then(res => res.json())
+  .then(data => console.log(data));
+
+mongoose.connect('mongodb://localhost/codewarsDB', { useNewUrlParser: true }, (err) => {
   err ? console.log('not connected') : console.log('connected')
 });
 
@@ -37,12 +42,12 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

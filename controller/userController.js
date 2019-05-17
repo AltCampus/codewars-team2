@@ -1,39 +1,42 @@
 var User = require('../models/User');
 const bcrypt = require('bcrypt');
 
+
+
+
 module.exports = {
-	login_Form: function(req, res, next) {
+	login_Form: function (req, res, next) {
 		var err = req.flash('err');
-    console.log(err, 'flash check in login form............');
+		console.log(err, 'flash check in login form............');
 	},
 
-	login: function(req, res, next) {
-		User.findOne({email: req.body.email}, (err, user) => {
-			if(err)	return res.status(500).redrect('/users/login');
-			if(!user) {
+	login: function (req, res, next) {
+		User.findOne({ email: req.body.email }, (err, user) => {
+			if (err) return res.status(500).redrect('/users/login');
+			if (!user) {
 				req.flash('err', 'Invalid email...')
 				return res.status(400).redirect('/users/register');
 			}
-			if(user){
+			if (user) {
 				const result = bcrypt.compareSync(req.body.password, user.password)
-				if(!result){
-      		req.flash('err', 'Incorrect password');
+				if (!result) {
+					req.flash('err', 'Incorrect password');
 					return res.status(400).redirect('/users/login');
-				}else if(result){
+				} else if (result) {
 					console.log(result, "Login succesull");
 					req.session.userId = user._id;
-      		req.flash('login', "login successfull");
+					req.flash('login', "login successfull");
 					return res.status(200).redirect('/');
 				};
 			}
 		})
 	},
 
-	register_Form: function(req, res, next) {
+	register_Form: function (req, res, next) {
 		res.render('signUp');
 	},
 
-	register: function(req, res, next) {
+	register: function (req, res, next) {
 		// var user = req.body;
 		// User.create(user, (err, user) => {
 		// 	if(err) {
@@ -52,8 +55,14 @@ module.exports = {
 		// })
 	},
 
-	logout: function(req, res, next) {
+	logout: function (req, res, next) {
 		req.session.destroy();
 		res.redirect('/users/login');
 	}
 }
+
+// /code after registration done
+// let { username } = req.body;
+
+
+//store in db
