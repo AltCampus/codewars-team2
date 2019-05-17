@@ -8,11 +8,11 @@ module.exports = {
 		})
 	},
 
-	get_User: function (req, res, next) {
+	batch_User: function (req, res, next) {
 
 		console.log(req.body);
 		console.log(req.params);
-		User.findOne({ username: req.params.name }, (err, users) => {
+		User.find({ batch: req.params.batch }, (err, users) => {
 			if (err) return next(err);
 			res.json(users);
 		})

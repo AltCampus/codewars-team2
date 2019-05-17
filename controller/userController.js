@@ -43,7 +43,8 @@ module.exports = {
 			User.create({
 				username: req.body.username,
 				email: req.body.email,
-				password: req.body.password
+				password: req.body.password,
+				batch: req.body.batch
 			}, (err, user) => {
 				if (err) return next(err);
 				console.log("registration sucessfull.......");
