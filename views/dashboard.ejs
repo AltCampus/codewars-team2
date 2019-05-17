@@ -10,36 +10,41 @@
   <body>
     <% include partials/header %>
 
-    <section class="container">
-      <main>
-        <div class="dropdown-container">
-          <div class="dropdown-div">
-            <select id="dropdown" class="dropdown" name="">
-              <option value="average">average</option>
-              <option value="weekly">weekly</option>
-            </select>
+  <section class="container">
+    <main>
+      <div class="dropdown-container">
+        <div class="dropdown-div">
+
+          <div class="toggleButtons">
+            <button id = "ascending" class="btn" type="button" name="button">ascending</button>
+            <button id = "descending" class="btn" type="" name="button">descending</button>
           </div>
+
+
+          <select id="dropdown" class="dropdown" name="">
+            <option value="average">average</option>
+            <option value="weekly">weekly</option>
+          </select>
         </div>
-        <table class="table" id="table">
-          <thead>
-            <tr>
-              <th>email</th>
-              <th>username</th>
-              <th>kata</th>
-              <th>score</th>
-            </tr>
-          </thead>
+      </div>
+      <table class="table" id="table">
+        <thead>
+          <tr>
+            <th>email</th>
+            <th>username</th>
+            <th>kata</th>
+            <th>score</th>
+          </tr>
+        </thead>
           <tbody id="tableBody">
-            <tr>
-              <td>a</td>
-              <td>b</td>
-              <td>c</td>
-              <td>d</td>
-            </tr>
-          </tbody>
-        </table>
-      </main>
-    </section>
-    <script src="/js/main.js"></script>
-  </body>
+
+
+        </tbody>
+
+      </table>
+    </main>
+  </section>
+  <script src="/js/main.js"></script>
+</body>
+
 </html>

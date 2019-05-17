@@ -148,6 +148,17 @@ body {
   display: flex;
   justify-content: flex-end;
 }
+.toggleButtons{
+  margin-right: 2rem;
+}
+.btn{
+  background-color:rgb(38,39,41);
+  color: #bb432c;
+  border: 1px solid black;
+  padding: 3px 10px;
+  border-radius: 5px;
+}
+
 .dropdown {
   color: #bb432c;
   background-color: rgb(38, 39, 41);
@@ -166,7 +177,7 @@ body {
 .table th,
 .table td {
   border: 1px solid black;
-  width: 10rem;
+  padding: .5rem 3rem;
   height: 2rem;
   vertical-align: middle;
 }
@@ -182,6 +193,4 @@ body {
   text-align: center;
   font-size: 1.2rem;
   background-color: rgb(60, 60, 60);
-}
-.table tr:last-child {
 }

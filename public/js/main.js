@@ -5,7 +5,7 @@
 // The url to fetch the data from backend from
 const API_URL = "http://localhost:3000/api/v1/users";
 // IDs
-const TABLE_BODY_ID = "displayTableBody"
+const TABLE_BODY_ID = "tableBody"
 const ASCENDING_BTN = "ascendingorder";
 const DESCENDING_BTN = "descendingorder";
 // Class Names
@@ -56,7 +56,7 @@ function displayData(data, tableBodyID){
         for(let j = 0, m = TABLE_DISPLAY.length; j < m; j++){
             let tdata = document.createElement("td");
             tdata.classList.add(TDATA_CLASS);
-            tdata.innerText = data.codewars[TABLE_DISPLAY[j]];
+            tdata.innerText = data[i].codewars[TABLE_DISPLAY[j]];
             // appending tdata to trow
             trow.appendChild(tdata);
         }
@@ -71,7 +71,7 @@ function handleOnClick(){
     let ascendingBtn = document.querySelector("#" + ASCENDING_BTN);
     ascendingBtn.addEventListener("click", () => {
         usersInfo.then(data => {
-            inAscendingOrder(data, "honor");
+            return inAscendingOrder(data, "honor");
         }).then(organisedData => {
             displayData(organisedData, TABLE_BODY_ID);
         });
@@ -80,7 +80,7 @@ function handleOnClick(){
     let descendingBtn = document.querySelector("#" + DESCENDING_BTN);
     descendingBtn.addEventListener("click", () => {
         usersInfo.then(data => {
-            inDescendingOrder(data, "honor");
+            return inDescendingOrder(data, "honor");
         }).then(organisedData => {  
             displayData(organisedData, TABLE_BODY_ID);
         });
@@ -93,7 +93,7 @@ function handleOnload(){
         usersInfo = fetchUsers();
         // diplaying data in descending order of honor
         usersInfo.then(data => {
-            inDescendingOrder(data, "honor");
+            return inDescendingOrder(data, "honor");
         }).then(organisedData => {
             displayData(organisedData, TABLE_BODY_ID);
         });
@@ -101,11 +101,11 @@ function handleOnload(){
     return 0;
 }
 
-function test(){
+function calls(){
     usersInfo = fetchUsers();
     // diplaying data in descending order of honor
     usersInfo.then(data => {
-        inDescendingOrder(data, "honor");
+        return inDescendingOrder(data, "honor");
     }).then(organisedData => {
         displayData(organisedData, TABLE_BODY_ID);
     });
@@ -113,7 +113,8 @@ function test(){
 
 
 // EXECUTION //
+calls();
 // Calling function to fetch data on document load
-handleOnload();
+// handleOnload();
 // Calling function to handle click events on the buttons
 // handleOnClick();
