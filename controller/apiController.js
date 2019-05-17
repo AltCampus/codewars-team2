@@ -2,10 +2,9 @@ var User = require('../models/User');
 
 module.exports = {
 	All_Users: function (req, res, next) {
-		User.find({}, (err, Users) => {
+		User.find({}, (err, users) => {
 			if (err) return next(err);
-			console.log(users);
-			res.json(Users);
+			res.json(users);
 		})
 	},
 
@@ -13,9 +12,9 @@ module.exports = {
 
 		console.log(req.body);
 		console.log(req.params);
-		User.findOne({ username: req.params.name }, (err, Users) => {
+		User.findOne({ username: req.params.name }, (err, users) => {
 			if (err) return next(err);
-			res.json(Users);
+			res.json(users);
 		})
 	},
 }

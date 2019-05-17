@@ -2,12 +2,9 @@ var User = require('../models/User');
 const bcrypt = require('bcrypt');
 const fetch = require('node-fetch');
 
-
-
-
-
 module.exports = {
 	login_Form: function (req, res, next) {
+		console.log(req.session, "session...")
 		res.render('loginForm');
 	},
 
@@ -50,13 +47,13 @@ module.exports = {
 			}, (err, user) => {
 				if (err) return next(err);
 				console.log("registration sucessfull.......");
+				req.session.userId = user._id;
 				res.status(400).redirect('/');
 
 				//SAVING USER DATA IN OBJ
 				fetch(`https://www.codewars.com/api/v1/users/${req.body.password}`).then(res => res.json())
 					.then(data => {
 						user.codewars = data;
-
 						user.save();
 					});
 
