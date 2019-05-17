@@ -8,10 +8,7 @@ var session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 var authController = require('./controller/authController');
 
-const fetch = require('node-fetch');
 
-fetch(`https://www.codewars.com/api/v1/users/klassynihal`).then(res => res.json())
-  .then(data => console.log(data));
 
 mongoose.connect('mongodb://localhost/codewarsDB', { useNewUrlParser: true }, (err) => {
   err ? console.log('not connected') : console.log('connected')

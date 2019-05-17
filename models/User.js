@@ -8,14 +8,9 @@ var userSchema = new Schema({
         unique: true,
         required: true
     },
-    name: {
-        type: String,
-        required: true
-    },
     username: {
         type: String,
         required: true,
-        unique: true
     },
     password: {
         type: String,
@@ -34,10 +29,6 @@ userSchema.pre('save', function (next) {
     console.log(this.password)
     next()
 })
-
-// userSchema.methods.validatePassword = function (password) {
-//     return bcrypt.compareSync(password, this.password)
-// }
 
 var User = mongoose.model('User', userSchema);
 
