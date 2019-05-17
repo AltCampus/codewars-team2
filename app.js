@@ -13,7 +13,7 @@ mongoose.connect('mongodb://localhost/codewarsDB', {useNewUrlParser: true}, (err
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-
+var apiRouter = require('./routes/api/api');
 var app = express();
 
 // view engine setup
@@ -35,6 +35,7 @@ app.use(session({
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
