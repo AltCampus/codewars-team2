@@ -47,7 +47,6 @@ module.exports = {
 				console.log("user exist...")
 				return res.json({ message: "User already exists" });
 			}
-			
 			User.create({
 				username: req.body.username,
 				email: req.body.email,
@@ -60,13 +59,11 @@ module.exports = {
 				res.status(400).redirect('/');
 
 				//SAVING USER DATA IN OBJ
-				fetch(`https://www.codewars.com/api/v1/users/${req.body.username}`).then(res => res.json())
-					.then(data => {
-						user.codewars = data;
-						user.save();
-					});
-
-
+				fetch(`https://www.codewars.com/api/v1/users/${req.body.username}`).then(res => res.json()).then(data => {
+					
+					user.codewars = data;
+					user.save();
+				});
 			})
 		})
 	},
