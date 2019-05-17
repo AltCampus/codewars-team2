@@ -31,8 +31,6 @@ module.exports = {
 	},
 
 	register: function(req, res, next) {
-		console.log(req.body, "body......................")
-		// var user = req.body;
 		User.findOne({email: req.body.email}, (err, user) => {
 			if(err) return next(err);
 			if(user) {
@@ -44,7 +42,7 @@ module.exports = {
 				password:req.body.password
 			}, (err, user) => {
 				if(err) return next(err);
-				console.log("registration sucessfull.......");
+				console.log("registration sucessfull...");
 				res.status(400).redirect('/');
 			})
 		})
