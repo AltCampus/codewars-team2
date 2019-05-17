@@ -1,0 +1,16 @@
+<% include partials/header %>
+
+<body>
+
+    <h3>Enter your e-mail and password below to login.</h3>
+    <form method="POST" action="/users/login">
+        <input type="email" placeholder="email" name="email">
+        <input type="password" placeholder="password..." name="password">
+        <button type="submit">Submit</button>
+    </form>
+    <h5>If you don't already have an account, sign up below!</h5>
+    <a href="/users/new"><button>Sign up!</button></a>
+
+
+    
+<% include partials/footer %>

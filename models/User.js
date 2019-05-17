@@ -3,14 +3,28 @@ var Schema = mongoose.Schema;
 var bcrypt = require('bcrypt')
 
 var userSchema = new Schema ({
-    name: {type: String,
-        required: true},
-    username: {type: String,
+    email: {
+        type: String,
+        unique: true,
+        required: true
+    },
+    name: {
+        type: String,
+        required: true
+    },
+    username: {
+        type: String,
         required: true,
-    unique: true},
-    password: {type: String,
-        required: true},
-    codewars: [{type: Object,   
+        unique: true
+    },
+    password: {
+        type: String,
+        min: 6,
+        max: 15,
+        required: true
+    },
+    codewars: [{
+        type: Object,  
     }]
 }, {timestamp: true})
 
@@ -21,9 +35,9 @@ userSchema.pre('save', function (next) {
     next()
 })
 
-userSchema.methods.validatePassword = function (password) {
-    return bcrypt.compareSync(password, this.password)
-}
+// userSchema.methods.validatePassword = function (password) {
+//     return bcrypt.compareSync(password, this.password)
+// }
 
 var User = mongoose.model('User', userSchema);
 

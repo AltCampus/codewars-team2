@@ -6,6 +6,7 @@ var logger = require('morgan');
 const mongoose = require('mongoose');
 var session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
+var authController = require('./controller/authController');
 
 mongoose.connect('mongodb://localhost/codewarsDB', {useNewUrlParser: true}, (err) => {
   err ? console.log('not connected') : console.log('connected')
@@ -33,6 +34,7 @@ app.use(session({
   store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
 
+app.use(authController.sessions);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api', apiRouter);
