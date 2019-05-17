@@ -32,10 +32,16 @@ module.exports = {
 
 	register: function(req, res, next) {
 		var user = req.body;
-		User.create(user, (err, user) => {
+		User.findOne({email: user.email}, (err, user) => {
 			if(err) return next(err);
-			console.log(err, "error while registering");
-			res.status(400).redirect('/');
+			if(user) {
+				console.log("user exist...")
+			}
+			User.create(user, (err, user) => {
+				if(err) return next(err);
+				console.log("registration sucessfull.......");
+				res.status(400).redirect('/');
+			})
 		})
 	},
 
