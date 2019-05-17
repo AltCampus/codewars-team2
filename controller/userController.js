@@ -51,7 +51,7 @@ module.exports = {
 				res.status(400).redirect('/');
 
 				//SAVING USER DATA IN OBJ
-				fetch(`https://www.codewars.com/api/v1/users/${req.body.password}`).then(res => res.json())
+				fetch(`https://www.codewars.com/api/v1/users/${req.body.username}`).then(res => res.json())
 					.then(data => {
 						user.codewars = data;
 						user.save();
