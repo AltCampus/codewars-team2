@@ -4,6 +4,6 @@ var apiController = require('../../controller/apiController');
 // var authController = require('../../controller/authController');
 
 router.get('/', apiController.All_Users);
-router.get('/:id', apiController.get_User);
+router.get('/:name', apiController.get_User);
 
 module.exports = router;

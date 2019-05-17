@@ -10,7 +10,7 @@ var authController = require('./controller/authController');
 
 
 
-mongoose.connect('mongodb://localhost/codewarsDB', { useNewUrlParser: true }, (err) => {
+mongoose.connect('mongodb://altwar:qwerty123@ds255329.mlab.com:55329/altwars', { useNewUrlParser: true }, (err) => {
   err ? console.log('not connected') : console.log('connected')
 });
 
@@ -39,7 +39,7 @@ app.use(session({
 app.use(authController.sessions);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/api', apiRouter);
+app.use('/api/v1', apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

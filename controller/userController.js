@@ -36,13 +36,18 @@ module.exports = {
 	},
 
 	register: function (req, res, next) {
-		var user = req.body;
-		User.findOne({ email: user.email }, (err, user) => {
+		console.log(req.body, "body......................")
+		// var user = req.body;
+		User.findOne({ email: req.body.email }, (err, user) => {
 			if (err) return next(err);
 			if (user) {
 				console.log("user exist...")
 			}
-			User.create(user, (err, user) => {
+			User.create({
+				username: req.body.username,
+				email: req.body.email,
+				password: req.body.password
+			}, (err, user) => {
 				if (err) return next(err);
 				console.log("registration sucessfull.......");
 				res.status(400).redirect('/');

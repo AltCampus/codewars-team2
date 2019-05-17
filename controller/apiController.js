@@ -10,7 +10,9 @@ module.exports = {
 	},
 
 	get_User: function (req, res, next) {
-		User.findOne({ _id: req.params.id }, (err, Users) => {
+		console.log(req.body);
+		console.log(req.params);
+		User.findOne({ username: req.params.name }, (err, Users) => {
 			if (err) return next(err);
 			res.json(Users);
 		})
