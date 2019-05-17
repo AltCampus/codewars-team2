@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var bcrypt = require('bcrypt')
 
-var userSchema = new Schema ({
+var userSchema = new Schema({
     email: {
         type: String,
         unique: true,
@@ -18,10 +18,10 @@ var userSchema = new Schema ({
         max: 15,
         required: true
     },
-    codewars: [{
-        type: Object, 
-    }]
-}, {timestamp: true})
+    codewars: {
+        type: Object,
+    }
+}, { timestamp: true })
 
 userSchema.pre('save', function (next) {
     var salt = bcrypt.genSaltSync(10)

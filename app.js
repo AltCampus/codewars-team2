@@ -8,7 +8,7 @@ var session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 var authController = require('./controller/authController');
 
-mongoose.connect('mongodb://localhost/codewarsDB', {useNewUrlParser: true}, (err) => {
+mongoose.connect('mongodb://altwar:qwerty123@ds255329.mlab.com:55329/altwars', { useNewUrlParser: true }, (err) => {
   err ? console.log('not connected') : console.log('connected')
 });
 
@@ -40,12 +40,12 @@ app.use('/users', usersRouter);
 app.use('/api/v1', apiRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
