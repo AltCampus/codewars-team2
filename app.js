@@ -8,7 +8,7 @@ var session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 var authController = require('./controller/authController');
 
-mongoose.connect('mongodb://altwar:qwerty123@ds255329.mlab.com:55329/altwars', { useNewUrlParser: true }, (err) => {
+mongoose.connect("mongodb://localhost/altwar", { useNewUrlParser: true }, (err) => {
   err ? console.log('not connected') : console.log('connected')
 });
 

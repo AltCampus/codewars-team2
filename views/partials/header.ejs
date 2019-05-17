@@ -3,21 +3,24 @@
 <head>
 	<meta charset="UTF-8">
 	<title></title>
-	<style>
-		nav ul {
-			display: flex;
-			justify-content: space-between;
-		}
-	</style>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 <body>
-	<header>
+	<header class="header">
 		<nav>
 			<ul>
 				<li><a href="/">Home</a></li>
-				<li><a href="/users/login">login</a></li>
-				<li><a href="/users/register">signup</a></li>
-				<li><a href="/users/logout">logout</a></li>
+				<% if(user){ %>
+					<li class="li">
+						<div class="user-profile">
+							<p class="user"><%= user.codewars ? user.codewars.username : "null" %></p>
+						</div>
+						<a href="/users/logout">logout</a>
+					</li>
+				<% } else { %>
+					<li><a href="/users/login">login</a></li>
+					<li><a href="/users/register">signup</a></li>
+				<% } %>
 			</ul>
 		</nav>
 	</header>
