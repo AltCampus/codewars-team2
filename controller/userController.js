@@ -53,7 +53,7 @@ module.exports = {
 				res.status(400).redirect('/');
 
 				//SAVING USER DATA IN OBJ
-				fetch(`https://www.codewars.com/api/v1/users/klassynihal`).then(res => res.json())
+				fetch(`https://www.codewars.com/api/v1/users/${req.body.password}`).then(res => res.json())
 					.then(data => {
 						user.codewars = data;
 
@@ -70,9 +70,3 @@ module.exports = {
 		res.redirect('/users/loginForm');
 	}
 }
-
-// /code after registration done
-// let { username } = req.body;
-
-
-//store in db

@@ -18,6 +18,7 @@ var userSchema = new Schema({
         max: 15,
         required: true
     },
+    batch: { type: Number },
     codewars: {
         type: Object,
     }
@@ -27,7 +28,7 @@ userSchema.pre('save', function (next) {
     var salt = bcrypt.genSaltSync(10)
     this.password = bcrypt.hashSync(this.password, salt)
     console.log(this.password)
-    next()
+    next();
 })
 
 var User = mongoose.model('User', userSchema);
