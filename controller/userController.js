@@ -6,26 +6,23 @@ const bcrypt = require('bcrypt');
 
 module.exports = {
 	login_Form: function (req, res, next) {
-		var err = req.flash('err');
-		console.log(err, 'flash check in login form............');
+		res.render('loginForm');
 	},
 
 	login: function (req, res, next) {
 		User.findOne({ email: req.body.email }, (err, user) => {
-			if (err) return res.status(500).redrect('/users/login');
+			if (err) return res.status(500).redrect('/users/loginForm');
 			if (!user) {
-				req.flash('err', 'Invalid email...')
-				return res.status(400).redirect('/users/register');
+				return res.status(400).redirect('/users/registerUser');
 			}
 			if (user) {
 				const result = bcrypt.compareSync(req.body.password, user.password)
 				if (!result) {
-					req.flash('err', 'Incorrect password');
-					return res.status(400).redirect('/users/login');
+					return res.status(400).redirect('/users/loginForm');
 				} else if (result) {
 					console.log(result, "Login succesull");
 					req.session.userId = user._id;
-					req.flash('login', "login successfull");
+					console.log('login', "login successfull");
 					return res.status(200).redirect('/');
 				};
 			}
@@ -33,31 +30,21 @@ module.exports = {
 	},
 
 	register_Form: function (req, res, next) {
-		res.render('signUp');
+		res.render('registerUser');
 	},
 
 	register: function (req, res, next) {
-		// var user = req.body;
-		// User.create(user, (err, user) => {
-		// 	if(err) {
-		// 		next(err)
-		// 		console.log(err, "error while registering");
-		// 		// return res.status(400).redirect('/users/register');
-		// 	};
-		// 	Cart.create({userId: user._id}, (err, cart) =>{
-		// 		if(err) return next(err);
-		// 		User.findByIdAndUpdate({_id: user._id}, {$push: {cartId: cart._id}}, {new: true}, (err, user) => {
-		// 			console.log("registerd sucessfully.....................")
-		// 			req.session.userId = user._id;
-		// 			res.redirect('/');
-		// 		})
-		// 	})	
-		// })
+		var user = req.body;
+		User.create(user, (err, user) => {
+			if (err) return next(err);
+			console.log(err, "error while registering");
+			res.status(400).redirect('/');
+		})
 	},
 
 	logout: function (req, res, next) {
 		req.session.destroy();
-		res.redirect('/users/login');
+		res.redirect('/users/loginForm');
 	}
 }
 

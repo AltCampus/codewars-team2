@@ -6,6 +6,7 @@ var logger = require('morgan');
 const mongoose = require('mongoose');
 var session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
+var authController = require('./controller/authController');
 
 const fetch = require('node-fetch');
 
@@ -18,7 +19,7 @@ mongoose.connect('mongodb://localhost/codewarsDB', { useNewUrlParser: true }, (e
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-
+var apiRouter = require('./routes/api/api');
 var app = express();
 
 // view engine setup
@@ -38,8 +39,10 @@ app.use(session({
   store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
 
+app.use(authController.sessions);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
