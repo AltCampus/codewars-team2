@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var userApi = require('./user');
+var userApi = require('./users');
 
 router.use('/users', userApi);
 
