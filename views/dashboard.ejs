@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title></title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <link rel="stylesheet" href="/stylesheets/leader.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
+  </head>
 
-<head>
-  <title></title>
-  <link rel='stylesheet' href='/stylesheets/style.css' />
-  <link rel="stylesheet" href="/stylesheets/leader.css">
-  <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
-</head>
+  <body>
+    <% include partials/header %>
 
 <body>
   <% include partials/header %>
@@ -37,13 +39,15 @@
             <th>score</th>
           </tr>
         </thead>
-        <tbody>
+          <tbody id="tableBody">
+
 
         </tbody>
 
       </table>
     </main>
   </section>
+  <script src="/js/main.js"></script>
 </body>
 
 </html>
