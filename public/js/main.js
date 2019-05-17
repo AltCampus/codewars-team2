@@ -1,5 +1,6 @@
 // OVERALL LEADERBOARD JSCODE // 
 
+
 // DECLARING GLOBAL VARIABLES AND CONSTANTS //
 // The url to fetch the data from backend from
 const API_URL = "https://localhost:3000/api/v1/users";
@@ -80,7 +81,7 @@ function handleOnClick(){
     descendingBtn.addEventListener("click", () => {
         userInfo.then(data => {
             inDescendingOrder(data, "honor");
-        }).then(organisedData => {
+        }).then(organisedData => {  
             displayData(organisedData, TABLE_ID);
         });
     });
@@ -99,6 +100,7 @@ function handleOnload(){
     });
     return 0;
 }
+
 
 // EXECUTION //
 // Calling function to fetch data on document load
