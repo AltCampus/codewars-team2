@@ -3,9 +3,9 @@
 
 // DECLARING GLOBAL VARIABLES AND CONSTANTS //
 // The url to fetch the data from backend from
-const API_URL = "https://localhost:3000/api/v1/users";
+const API_URL = "http://localhost:3000/api/v1/users";
 // IDs
-const TABLE_ID = "overallLeaderboard"
+const TABLE_BODY_ID = "displayTableBody"
 const ASCENDING_BTN = "ascendingorder";
 const DESCENDING_BTN = "descendingorder";
 // Class Names
@@ -42,7 +42,7 @@ function inDescendingOrder(data, basis){
 
 // Displaying data
 // data: the data to be displayed
-// tableID: ID of the table to display data in
+// tableBodyID: ID of the body of the table to display data in
 function displayData(data, tableBodyID){
     // selecting the targetted table
     let targetTableBody = document.querySelector("#" + tableBodyID);
@@ -70,19 +70,19 @@ function displayData(data, tableBodyID){
 function handleOnClick(){
     let ascendingBtn = document.querySelector("#" + ASCENDING_BTN);
     ascendingBtn.addEventListener("click", () => {
-        userInfo.then(data => {
+        usersInfo.then(data => {
             inAscendingOrder(data, "honor");
         }).then(organisedData => {
-            displayData(organisedData, TABLE_ID);
+            displayData(organisedData, TABLE_BODY_ID);
         });
     });
 
     let descendingBtn = document.querySelector("#" + DESCENDING_BTN);
     descendingBtn.addEventListener("click", () => {
-        userInfo.then(data => {
+        usersInfo.then(data => {
             inDescendingOrder(data, "honor");
         }).then(organisedData => {  
-            displayData(organisedData, TABLE_ID);
+            displayData(organisedData, TABLE_BODY_ID);
         });
     });
 }
@@ -92,13 +92,23 @@ function handleOnload(){
     document.addEventListener("load", () => {
         usersInfo = fetchUsers();
         // diplaying data in descending order of honor
-        userInfo.then(data => {
+        usersInfo.then(data => {
             inDescendingOrder(data, "honor");
         }).then(organisedData => {
-            displayData(organisedData, TABLE_ID);
+            displayData(organisedData, TABLE_BODY_ID);
         });
     });
     return 0;
+}
+
+function test(){
+    usersInfo = fetchUsers();
+    // diplaying data in descending order of honor
+    usersInfo.then(data => {
+        inDescendingOrder(data, "honor");
+    }).then(organisedData => {
+        displayData(organisedData, TABLE_BODY_ID);
+    });
 }
 
 
@@ -106,4 +116,4 @@ function handleOnload(){
 // Calling function to fetch data on document load
 handleOnload();
 // Calling function to handle click events on the buttons
-handleOnClick();
+// handleOnClick();
