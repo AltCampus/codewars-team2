@@ -9,19 +9,19 @@ module.exports = {
 	},
 
 	login: function (req, res, next) {
+		console.log(req.body);
 		User.findOne({ email: req.body.email }, (err, user) => {
-			if (err) return res.status(500).redrect('/users/loginForm');
+			if (err) return next(err);
 			if (!user) {
 				return res.status(400).redirect('/users/registerUser');
 			}
 			if (user) {
-				const result = bcrypt.compareSync(req.body.password, user.password)
+				const result = bcrypt.compareSync(req.body.password, user.password);
 				if (!result) {
 					return res.status(400).redirect('/users/loginForm');
 				} else if (result) {
 					console.log(result, "Login succesull");
 					req.session.userId = user._id;
-					console.log('login', "login successfull");
 					return res.status(200).redirect('/');
 				};
 			}

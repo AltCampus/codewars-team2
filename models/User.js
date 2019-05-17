@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var bcrypt = require('bcrypt')
+const salt = bcrypt.genSaltSync(10);
 
 var userSchema = new Schema({
     email: {
@@ -24,11 +25,15 @@ var userSchema = new Schema({
 }, { timestamp: true })
 
 userSchema.pre('save', function (next) {
-    var salt = bcrypt.genSaltSync(10)
-    this.password = bcrypt.hashSync(this.password, salt)
-    console.log(this.password)
+    if(this.password){
+        this.password = bcrypt.hashSync(this.password, salt)
+    }
     next()
 })
+
+// userSchema.methods.validatePassword = function (password) {
+//     return bcrypt.compareSync(password, this.password)
+// }
 
 var User = mongoose.model('User', userSchema);
 
