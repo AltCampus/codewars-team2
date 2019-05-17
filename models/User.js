@@ -19,6 +19,7 @@ var userSchema = new Schema({
         max: 15,
         required: true
     },
+    batch: { type: Number },
     codewars: {
         type: Object,
     }
