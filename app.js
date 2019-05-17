@@ -3,6 +3,13 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const mongoose = require('mongoose');
+var session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
+
+mongoose.connect('mongodb://localhost/codewarsDB', {useNewUrlParser: true}, (err) => {
+  err ? console.log('not connected') : console.log('connected')
+});
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -18,6 +25,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(session({
+  secret: 'ninjas everywhere',
+  resave: false,
+  saveUninitialized: true,
+  store: new MongoStore({ mongooseConnection: mongoose.connection })
+}));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
