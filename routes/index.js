@@ -4,7 +4,7 @@ var authController = require('../controller/authController');
 
 /* GET home page. */
 router.get('/', authController.isUserLoggedIn, (req, res, next) => {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'AltWars' });
 });
 
 // rendering dashboard
