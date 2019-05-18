@@ -5,6 +5,9 @@ const salt = bcrypt.genSaltSync(10);
 const timestamp = require('time-stamp');
 
 var userSchema = new Schema({
+    profilePicURL: {
+        type: String,
+    },
     email: {
         type: String,
         unique: true,
