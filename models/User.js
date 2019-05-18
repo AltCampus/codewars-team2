@@ -22,7 +22,7 @@ var userSchema = new Schema({
     },
     batch: {
         type: Number,
-        required: true
+        // required: true
     },
     codewars: {
         type: Object,
