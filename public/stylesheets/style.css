@@ -484,3 +484,10 @@ form {
   font-size: 2rem;
   color: #bb432c;
 }
+
+/* Logged in user */
+#loggedIn {
+  color: #1c6671;
+  font-style: italic;
+  font-weight: 900;
+}

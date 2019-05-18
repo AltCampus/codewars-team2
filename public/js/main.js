@@ -9,6 +9,7 @@ const TABLE_BODY_ID = "tableBody"
 const ASCENDING_BTN = "ascendingBtn";
 const DESCENDING_BTN = "descendingBtn";
 const BATCH_DROPDOWN_ID = "batchDropdown";
+const LOGGED_IN_ID = "loggedIn";
 // Class Names
 const TABLE_BODY_CLASS = "tableBody";
 const TDATA_CLASS = "tdata";
@@ -20,6 +21,9 @@ let usersInfo = null;
 // The data being displayed
 let displayedData = null;
 
+// accessing logged in user
+let hiddenUsername = document.querySelector("#hiddenUsername");
+let loggedInUser = hiddenUsername.innerText;
 
 // DECLARING FUNCTIONS //
 // Fetching data synchronously 
@@ -68,6 +72,10 @@ function displayData(data, tableBodyID){
     for(let i = 0, n = data.length; i < n; i++){
         let trow = document.createElement("tr");
         trow.classList.add(TROW_CLASS);
+
+        // checking if the logged in user if being presented
+        if(loggedInUser === data[i].username) trow.setAttribute("id", LOGGED_IN_ID);
+
         // creating a table data in the row for each info to be displayed
         for(let j = 0, m = TABLE_DISPLAY.length; j < m; j++){
             let tdata = document.createElement("td");
