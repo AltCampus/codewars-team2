@@ -46,7 +46,6 @@ module.exports = {
 				if (err) return next(err);
 				console.log("registration sucessfull.......");
 				req.session.userId = user._id;
-				res.status(400).redirect('/');
 
 				//SAVING USER DATA IN OBJ
 				fetch(`https://www.codewars.com/api/v1/users/${req.body.username}`).then(res => res.json()).then(data => {
@@ -56,6 +55,7 @@ module.exports = {
 						fetch(`https://api.github.com/users/${user.username}`).then(res => res.json()).then(data => {
 							user.profilePicURL = data.avatar_url;
 							user.save();
+							res.status(400).redirect('/');
 						});
 					});
 				});

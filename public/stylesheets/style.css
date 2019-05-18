@@ -229,29 +229,12 @@ body {
 .header {
   padding: 20px;
   background: #000;
-}
-
-/* header  from sourabj file */
-.header {
-  display: flex;
+  /*display: flex;*/
   color: darkred;
+  /*justify-content: space-between;*/
 }
 
-nav ul {
-  color: white;
-  /* text-align:right; */
-  font-size: 1rem;
-  display: flex;
-  justify-content: flex-end !important;
-}
-
-li {
-  padding: 1rem;
-  display: inline-block;
-}
-/* [[[[[[[[[[[[]]]]]]]]]]]] */
-
-nav ul {
+.header nav ul {
   list-style: none;
   display: flex;
   justify-content: space-between;
@@ -265,14 +248,14 @@ nav ul {
 .user-profile {
   display: inline-block;
 }
+
 .user {
-  display: inline-block;
-  padding: 20px 10px;
+  height: 60px;
+  width: 60px;
   text-align: center;
-  vertical-align: middle;
   border-radius: 50%;
   background: #111;
-  margin-right: 10px;
+  margin-right: 20px;
 }
 nav ul li {
   font-size: 26px;
