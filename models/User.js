@@ -7,11 +7,7 @@ const timestamp = require('time-stamp');
 var userSchema = new Schema({
     profilePicURL: {
         type: String,
-<<<<<<< HEAD
-        default: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkzdYzjT3e7CcZGdxWJ2i9Yd4iwSRnNZzoHsG7CLUe4Moj6Fs51A",
-=======
         default: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkzdYzjT3e7CcZGdxWJ2i9Yd4iwSRnNZzoHsG7CLUe4Moj6Fs51A"
->>>>>>> 04c8e1537a53fa2fafc1a699b715fed9d3e0ec6b
     },
     email: {
         type: String,
@@ -21,6 +17,7 @@ var userSchema = new Schema({
     username: {
         type: String,
         required: true,
+        unique: true,
     },
     password: {
         type: String,
@@ -30,7 +27,7 @@ var userSchema = new Schema({
     },
     batch: {
         type: Number,
-        // required: true
+        required: true
     },
     codewars: {
         type: Object,

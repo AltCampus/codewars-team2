@@ -41,7 +41,7 @@ const DESCENDING_BTN = "descendingBtnw";
     tbody.innerHTML = '';
     data.forEach(user => {
       tbody.innerHTML += `
-        <tr class='trow'>
+        <tr class='trow' id=${(tbody.dataset.user == user.username) ? 'loggedIn' : ''}>
         <td class='tdata'>${user.email}</td>
         <td class='tdata'>${user.username}</td>
         <td class='tdata'>${(user.prevWeek.data) ? user.prevWeek.data.length : 'NA'}</td>
