@@ -21,19 +21,16 @@ let usersInfo = null;
 // DECLARING FUNCTIONS //
 // Fetching data synchronously 
 async function fetchUsers(){
-    let response = await fetch(API_URL);
-    let data = response.json();
-    return data;
+  let response = await fetch(API_URL);
+  let data = response.json();
+  return data;
 }
 
-
-var x = fetchUsers();
-console.log(x, "x...............")
 // Organising data in ascending order
 // data: the data to be organised
 // basis: the key to organise according to
 function inAscendingOrder(data, basis){
-    return data.sort(function(a, b){return a.codewars[basis] - b.codewars[basis]});
+  return data.sort(function(a, b){return a.codewars[basis] - b.codewars[basis]});
 }
 
 // Organising data in descending order
