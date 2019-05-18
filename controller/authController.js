@@ -6,7 +6,7 @@ exports.isUserLoggedIn = (req, res, next) => {
   		if(err) return next(err);
   		req.user = user;
   		res.locals.user = user;
-    	next();
+    	return next();
   	})
   }else {
     res.redirect("/users/login");
@@ -19,7 +19,7 @@ exports.sessions = (req, res, next) => {
   		if(err) return next(err);
   		req.user = user;
   		res.locals.user = user;
-      next();
+      return next();
   	})
   }else {
   	req.user = null;

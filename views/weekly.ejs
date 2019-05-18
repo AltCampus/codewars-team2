@@ -35,7 +35,7 @@
             <th>Questions Solved</th>
           </tr>
         </thead>
-        <tbody id="tableBodyw" class="tableBody" data-user='<%= user.username %>'>
+        <tbody id="tableBodyw" class="tableBody" data-user='<%= user ? user.username : null %>'>
           <tr>
             <td colspan="4">LOADING...</td>
           </tr>

@@ -10,11 +10,11 @@ router.get('/', (req, res, next) => {
 });
 
 // rendering dashboard
-router.get('/dashboard',authController.isUserLoggedIn, function (req, res, next) {
+router.get('/dashboard', authController.isUserLoggedIn, function (req, res, next) {
   res.render('dashboard');
 });
 
-router.get('/weekly',authController.isUserLoggedIn, function (req, res, next) {
+router.get('/weekly', authController.isUserLoggedIn, function (req, res, next) {
   res.render('weekly');
 });
 

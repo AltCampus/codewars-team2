@@ -9,7 +9,7 @@
 
 <body>
   <% include partials/header %>
-  <p id="hiddenUsername" style="display: none"><%= user.username %></p>
+  <p id="hiddenUsername" style="display: none"><%= user? user.username : null %></p>
   <section class="container">
     <main>
       <h3 class="boardHeading">Leaderboard</h3>

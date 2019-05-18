@@ -14,14 +14,13 @@ module.exports = {
 				return res.status(400).redirect('/users/register');
 			}
 			if (user) {
-
 				var result = user.validatePassword(req.body.password);				
 				if (!result) {
 					return res.status(400).redirect('/users/login');
 				} else if (result) {
 					console.log(result, "Login succesull...");
 					req.session.userId = user._id;
-					return res.status(200).redirect('/');
+					res.status(200).redirect('/');
 				};
 			}
 		})
