@@ -15,11 +15,24 @@
           <div class="dropdown-div">
 
             <div class="toggleButtons">
-              <button id = "ascendingBtn" class="btn" type="button" name="button">ascending</button>
-              <button id = "descendingBtn" class="btn" type="" name="button">descending</button>
+              <!-- selecting batch -->
+              <select id="batchDropdown" class="dropdown" name="batch">
+                  <option value="0">All Batches</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+              </select>
+              <!-- organising data -->
+              <button id="ascendingBtn" class="btn" type="button" name="button">ascending</button>
+              <button id="descendingBtn" class="btn" type="" name="button">descending</button>
             </div>
 
-            <select id="dropdown" class="dropdown" name="">
+            <select id="dropdown" class="dropdown" name="scoreboard">
               <option value="average">average</option>
               <option value="weekly">weekly</option>
             </select>
