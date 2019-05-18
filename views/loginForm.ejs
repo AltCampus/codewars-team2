@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>login</title>
-	<link rel="stylesheet" href="/stylesheets/style.css">
-</head>
-<body>
-	<% include partials/header %>
-	<div class="form-sec">
-	  <h3>Enter your e-mail and password below to login.</h3>
-	  <form method="POST" action="/users/login">
+	<head>
+		<meta charset="UTF-8">
+		<title>login</title>
+		<link rel="stylesheet" href="/stylesheets/style.css">
+	</head>
+	<body>
+		<% include partials/header %>
+		<div class="form-sec">
+		  <h3>Enter your e-mail and password below to login.</h3>
+		  <form method="POST" action="/users/login">
 	      <input type="email" placeholder="email" name="email">
 	      <input type="password" placeholder="password" name="password">
 	      <button type="submit">Submit</button>
-	  </form>
-	  <h5> Don't have an account? sign up!</h5>
-	  <a href="/users/register"><button>Sign up!</button></a>
-	</div>
-</body>
+		  </form>
+		  <h5> Don't have an account? sign up!</h5>
+		  <a href="/users/register"><button>Sign up!</button></a>
+		</div>
+	</body>
 </html>

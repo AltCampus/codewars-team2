@@ -4,25 +4,18 @@ const fetch = require('node-fetch');
 
 module.exports = {
 	login_Form: function (req, res, next) {
-		// console.log(req.session, "session...")
 		res.render('loginForm');
 	},
 
 	login: function (req, res, next) {
-		console.log(req.body, 'req body 1');
 		User.findOne({ email: req.body.email }, (err, user) => {
 			if (err) return next(err);
 			if (!user) {
 				return res.status(400).redirect('/users/registerUser');
 			}
 			if (user) {
-				// const result = bcrypt.compareSync(req.body.password, user.password);
-				console.log(user, "user.............. 2");
 
-				var result = user.validatePassword(req.body.password);
-
-				console.log(result, "result.............. 3 ");
-				
+				var result = user.validatePassword(req.body.password);				
 				if (!result) {
 					return res.status(400).redirect('/users/login');
 				} else if (result) {
@@ -39,12 +32,9 @@ module.exports = {
 	},
 
 	register: function (req, res, next) {
-		console.log(req.body, "body......................")
-		// var user = req.body;
 		User.findOne({ email: req.body.email }, (err, user) => {
 			if (err) return next(err);
 			if (user) {
-				console.log("user exist...")
 				return res.json({ message: "User already exists" });
 			}
 			User.create({

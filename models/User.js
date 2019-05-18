@@ -32,10 +32,10 @@ var userSchema = new Schema({
 userSchema.set('timestamps', true);
 
 userSchema.pre('save', function (next) {
-    if(this.password && this.isModified('password')){
-      this.password = bcrypt.hashSync(this.password, salt)
-      next()
-    }
+  if(this.password && this.isModified('password')){
+    this.password = bcrypt.hashSync(this.password, salt)
+  }
+  next()
 })
 
 userSchema.methods.validatePassword = function (password) {

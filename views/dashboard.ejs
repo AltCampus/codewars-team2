@@ -9,41 +9,42 @@
   <body>
     <% include partials/header %>
 
-  <section class="container">
-    <main>
-      <div class="dropdown-container">
-        <div class="dropdown-div">
+    <section class="container">
+      <main>
+        <div class="dropdown-container">
+          <div class="dropdown-div">
 
-          <div class="toggleButtons">
-            <button id = "ascending" class="btn" type="button" name="button">ascending</button>
-            <button id = "descending" class="btn" type="" name="button">descending</button>
+            <div class="toggleButtons">
+              <button id = "ascendingBtn" class="btn" type="button" name="button">ascending</button>
+              <button id = "descendingBtn" class="btn" type="" name="button">descending</button>
+            </div>
+
+            <select id="dropdown" class="dropdown" name="">
+              <option value="average">average</option>
+              <option value="weekly">weekly</option>
+            </select>
           </div>
-
-
-          <select id="dropdown" class="dropdown" name="">
-            <option value="average">average</option>
-            <option value="weekly">weekly</option>
-          </select>
         </div>
-      </div>
-      <table class="table" id="table">
-        <thead>
-          <tr>
-            <th>email</th>
-            <th>username</th>
-            <th>kata</th>
-            <th>score</th>
-          </tr>
-        </thead>
+
+        <%/* table %>
+        <%// ===================================== */%>
+        <table class="table" id="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Username</th>
+              <th>Honor</th>
+              <th>Clan</th>
+            </tr>
+          </thead>
           <tbody id="tableBody">
-
-
-        </tbody>
-
-      </table>
-    </main>
-  </section>
-  <script src="/js/main.js"></script>
-</body>
-
+            <tr>
+              <td colspan="4">LOADING...</td>
+            </tr>
+          </tbody>
+        </table>
+      </main>
+    </section>
+    <script src="/js/main.js"></script>
+  </body>
 </html>

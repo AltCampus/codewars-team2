@@ -9,9 +9,6 @@ module.exports = {
 	},
 
 	batch_User: function (req, res, next) {
-
-		console.log(req.body);
-		console.log(req.params);
 		User.find({ batch: req.params.batch }, (err, users) => {
 			if (err) return next(err);
 			res.json(users);
