@@ -26,9 +26,6 @@ async function fetchUsers(){
     return data;
 }
 
-
-var x = fetchUsers();
-console.log(x, "x...............")
 // Organising data in ascending order
 // data: the data to be organised
 // basis: the key to organise according to
