@@ -1,0 +1,45 @@
+<% include partials/header %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href="/stylesheets/button.css">
+  </head>
+<body>
+        <header>
+                <div class="top_section">
+                        <nav class="menu">
+                        <figure class= "awlogo">
+                                <img class="awicon" src="/images/altwarslogo.jpeg" alt="alt_code_war Logo">
+                        </figure>
+                        <h1 class="altwar_title">ALT WAR</h1>
+                                <ul>
+                                    <li>Home</li>
+                                    <li>Login</li>
+                                    <li>SignUp</li>
+                                    <li>Log Out</li>
+                                </ul>
+                        </nav>
+                </div> 
+        </header>
+        <div class="form-wrapper">
+            <h3 class="inputReminder">Enter your e-mail and password below to login.</h3><br>
+        <form class="col-1-3" method="POST" action="/users/login">    <div class="row">
+            <fieldset class="register-group">
+                <label>
+                    Email  
+                    <input class=border-left" type="email" placeholder="email" name="email">
+                </label> 
+                <label>
+                    Password
+                <div class="fpassword"><input type="password" placeholder="password..." name="password"> 
+                </label>
+                <!-- <span>Email</span><br><input class=border-left" type="email" placeholder="email" name="email"> -->
+                <button class="submit" data-action="submit">Submit</button>   
+            </fieldset>             
+        </form>
+            <h5 class=>If you don't already have an account, sign up below!</h5>
+            <a href="/users/new"><button>Sign up!</button></a>   
+        </div> 
+<% include partials/footer %>

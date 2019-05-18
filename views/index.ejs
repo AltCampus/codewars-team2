@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title></title>
+    <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' >
   </head>
   <body>
-		<% include partials/header %>
-
-    <h1>home page</h1>
+    <% include partials/header %>
+    <main class="homeMain">
+      <h1 class="homeHeading">Welcome to AltWars,</h1>
+      <a href="/dashboard"><button class="btn homeBtn">DashBoard</button></a>
+      <a href="/weekly"><button class="btn homeBtn">Weekly</button></a>
+    </main>
   </body>
 </html>

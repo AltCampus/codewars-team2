@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <link rel="stylesheet" href="/stylesheets/leader.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <% include partials/header %>
+
+<body>
+  <% include partials/header %>
+
+  <section class="container">
+    <main>
+      <div class="dropdown-container">
+        <div class="dropdown-div">
+
+          <div class="toggleButtons">
+            <button id = "ascending" class="btn" type="button" name="button">ascending</button>
+            <button id = "descending" class="btn" type="" name="button">descending</button>
+          </div>
+
+
+          <select id="dropdown" class="dropdown" name="">
+            <option value="average">average</option>
+            <option value="weekly">weekly</option>
+          </select>
+        </div>
+      </div>
+      <table class="table" id="table">
+        <thead>
+          <tr>
+            <th>email</th>
+            <th>username</th>
+            <th>kata</th>
+            <th>score</th>
+          </tr>
+        </thead>
+          <tbody id="tableBody">
+
+
+        </tbody>
+
+      </table>
+    </main>
+  </section>
+  <script src="/js/main.js"></script>
+</body>
+
+</html>

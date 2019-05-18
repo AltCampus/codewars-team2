@@ -52,8 +52,14 @@ module.exports = {
 				fetch(`https://www.codewars.com/api/v1/users/${req.body.username}`).then(res => res.json()).then(data => {
 					
 					user.codewars = data;
-					user.save();
+					user.save((err,user)=>{
+						fetch(`https://api.github.com/users/${user.username}`).then(res => res.json()).then(data => {
+							user.profilePicURL = data.avatar_url;
+							user.save();
+						});
+					});
 				});
+
 			})
 		})
 	},
