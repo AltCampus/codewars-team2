@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+  <link rel='stylesheet' href='/stylesheets/style.css'>
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <% include partials/header %>
+
+  <section class="container">
+    <main>
+      <div class="dropdown-container">
+        <div class="dropdown-div">
+
+          <div class="toggleButtons">
+            <button id="ascendingBtn" class="btn" type="button" name="button">ascending</button>
+            <button id="descendingBtn" class="btn" type="" name="button">descending</button>
+          </div>
+
+          <select id="dropdown" class="dropdown" name="">
+            <option value="average">average</option>
+            <option value="weekly">weekly</option>
+          </select>
+        </div>
+      </div>
+
+      <%/* table %>
+      <%// ===================================== */%>
+      <table class="table" id="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Username</th>
+            <th>Questions Solved</th>
+            <th>Score Earned</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          <tr>
+            <td colspan="4">LOADING...</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+  </section>
+  <script src="/js/weekly.js"></script>
+</body>
+
+</html>
