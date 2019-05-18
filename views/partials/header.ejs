@@ -14,8 +14,10 @@
 				<% if(user){ %>
 					<li class="li">
 						<div class="user-profile">
-							<img src=<%= user.profilePicURL %>" alt="" >
-							<p class="user"><%= user.codewars ? user.codewars.username : "null" %></p>
+						<% if (user){ %>
+							<img class="user" src=<%= user.profilePicURL %>" alt="">
+						<% } %>
+
 						</div>
 						<a href="/users/logout">logout</a>
 					</li>
