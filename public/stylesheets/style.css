@@ -290,11 +290,22 @@ nav ul li {
   transform: translate(-50%, -50%);
 }
 .form-sec button {
-  background: #00b7ff;
-  color: #fff;
-  padding: 4px 10px;
-  font-size: 20px;
-  border: 0;
+	background: #00B7FF;
+	color: #fff;
+	padding: 4px 10px;
+	font-size: 20px;
+	border: 0;
+}
+
+form input{
+	display: block;
+	width: 100%;
+	font-size: 20px;
+	padding: 3px 8px;
+	border-radius: 4px;
+	margin: 4px 0;
+	outline: 0;
+	border: 1px solid #111;
 }
 
 form input {
@@ -461,4 +472,24 @@ form {
   margin-bottom: 2rem;
   text-transform: uppercase;
   color: white;
+}
+
+/* Home Page styles: SG */
+.homeMain{
+  width: 98vw;
+}
+
+.homeBtn {
+  display: block;
+  margin: 1.5rem auto;
+  height: 5rem;
+  width: 12rem;
+  font-size: 1.5rem;
+}
+
+.homeHeading {
+  margin: 2rem auto;
+  font-size: 3rem;
+  text-align: center;
+  color: #bb432c;
 }

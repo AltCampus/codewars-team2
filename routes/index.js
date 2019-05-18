@@ -6,7 +6,7 @@ var bootStrapped = require('../controller/bootstrapped');
 
 /* GET home page. */
 router.get('/', authController.isUserLoggedIn, (req, res, next) => {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'AltWars' });
 });
 
 // rendering dashboard
