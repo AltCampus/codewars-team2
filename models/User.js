@@ -5,6 +5,10 @@ const salt = bcrypt.genSaltSync(10);
 const timestamp = require('time-stamp');
 
 var userSchema = new Schema({
+    profilePicURL: {
+        type: String,
+        default: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkzdYzjT3e7CcZGdxWJ2i9Yd4iwSRnNZzoHsG7CLUe4Moj6Fs51A";
+    },
     email: {
         type: String,
         unique: true,

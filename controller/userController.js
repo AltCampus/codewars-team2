@@ -11,7 +11,7 @@ module.exports = {
 		User.findOne({ email: req.body.email }, (err, user) => {
 			if (err) return next(err);
 			if (!user) {
-				return res.status(400).redirect('/users/registerUser');
+				return res.status(400).redirect('/users/register');
 			}
 			if (user) {
 
@@ -52,8 +52,14 @@ module.exports = {
 				fetch(`https://www.codewars.com/api/v1/users/${req.body.username}`).then(res => res.json()).then(data => {
 					
 					user.codewars = data;
-					user.save();
+					user.save((err,user)=>{
+						fetch(`https://api.github.com/users/${user.username}`).then(res => res.json()).then(data => {
+							user.profilePicURL = data.avatar_url;
+							user.save();
+						});
+					});
 				});
+
 			})
 		})
 	},

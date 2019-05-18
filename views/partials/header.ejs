@@ -3,16 +3,18 @@
 <head>
 	<meta charset="UTF-8">
 	<title></title>
-  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel='stylesheet' href='/stylesheets/style.css' >
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 </head>
 <body>
 	<header class="header">
 		<nav>
 			<ul>
-				<li><a href="/">Home</a></li>
+				<li><a href="/"><i class="fas fa-code"></i></a></li>
 				<% if(user){ %>
 					<li class="li">
 						<div class="user-profile">
+							<img src=<%= user.profilePicURL %>" alt="" >
 							<p class="user"><%= user.codewars ? user.codewars.username : "null" %></p>
 						</div>
 						<a href="/users/logout">logout</a>
