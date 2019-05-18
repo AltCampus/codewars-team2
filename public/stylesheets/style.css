@@ -190,6 +190,7 @@ body {
 .dropdown {
   color: #bb432c;
   background-color: rgb(38, 39, 41);
+  margin-right: 1rem;
   margin-bottom: 1rem;
   border-radius: 5px;
   border: 1px solid black;
