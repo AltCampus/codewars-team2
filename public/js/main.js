@@ -6,8 +6,8 @@
 const API_URL = "http://localhost:3000/api/v1/users";
 // IDs
 const TABLE_BODY_ID = "tableBody"
-const ASCENDING_BTN = "ascendingorder";
-const DESCENDING_BTN = "descendingorder";
+const ASCENDING_BTN = "ascendingBtn";
+const DESCENDING_BTN = "descendingBtn";
 // Class Names
 const TABLE_BODY_CLASS = "tableBody";
 const TDATA_CLASS = "tdata";
@@ -101,10 +101,28 @@ function handleOnload(){
     return 0;
 }
 
-function calls(){
+// handling error: if codewars profile not found
+// data: the data to be checked
+function errCodewarsProfile(data){
+    let updatedArr = [];
+    // adding default values if codewars profile not found
+    data.forEach((val) => {
+        if(!val.codewars) val.codewars = {};
+        for(let i = 0, n = TABLE_DISPLAY.length; i < n; i++){
+            if(!val.codewars[TABLE_DISPLAY[i]] && TABLE_DISPLAY[i] === "honor") val.codewars[TABLE_DISPLAY[i]] = 0;
+            else if(!val.codewars[TABLE_DISPLAY[i]]) val.codewars[TABLE_DISPLAY[i]] = "Anonymous";
+        }
+        updatedArr.push(val);
+    });
+    return updatedArr;
+}
+
+// initialising
+function init(){
     usersInfo = fetchUsers();
     // diplaying data in descending order of honor
     usersInfo.then(data => {
+        data = errCodewarsProfile(data);
         return inDescendingOrder(data, "honor");
     }).then(organisedData => {
         displayData(organisedData, TABLE_BODY_ID);
@@ -113,8 +131,8 @@ function calls(){
 
 
 // EXECUTION //
-calls();
+init();
 // Calling function to fetch data on document load
 // handleOnload();
 // Calling function to handle click events on the buttons
-// handleOnClick();
+handleOnClick();
