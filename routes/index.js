@@ -14,6 +14,10 @@ router.get('/dashboard', function (req, res, next) {
   res.render('dashboard');
 });
 
+router.get('/weekly', function (req, res, next) {
+  res.render('weekly');
+});
+
 router.get('/weekly/boot', bootStrapped.boot_weekly);
 
 

@@ -1,59 +1,63 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' >
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
-  </head>
 
-  <body>
-    <% include partials/header %>
+<head>
+  <title></title>
+  <link rel='stylesheet' href='/stylesheets/style.css'>
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
+</head>
 
-    <section class="container">
-      <main>
-        <div class="dropdown-container">
-          <div class="dropdown-div">
+<body>
+  <% include partials/header %>
 
-            <div class="toggleButtons">
-              <!-- selecting batch -->
-              <select id="batchDropdown" class="dropdown" name="batch">
-                  <option value="0">All Batches</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-              </select>
-              <!-- organising data -->
-              <button id="ascendingBtn" class="btn" type="button" name="button">ascending</button>
-              <button id="descendingBtn" class="btn" type="" name="button">descending</button>
-            </div>
+  <section class="container">
+    <main>
+      <h3>Leaderboard</h3>
 
+      <div class="dropdown-container">
+        <div class="dropdown-div">
+
+          <div class="toggleButtons">
+            <!-- selecting batch -->
+            <select id="batchDropdown" class="dropdown" name="batch">
+              <option value="0">All Batches</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+            </select>
+            <!-- organising data -->
+            <button id="ascendingBtn" class="btn" type="button" name="button">ascending</button>
+            <button id="descendingBtn" class="btn" type="" name="button">descending</button>
           </div>
-        </div>
 
-        <%/* table %>
-        <%// ===================================== */%>
-        <table class="table" id="table">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Username</th>
-              <th>Honor</th>
-              <th>Clan</th>
-            </tr>
-          </thead>
-          <tbody id="tableBody">
-            <tr>
-              <td colspan="4">LOADING...</td>
-            </tr>
-          </tbody>
-        </table>
-      </main>
-    </section>
-    <script src="/js/main.js"></script>
-  </body>
+        </div>
+      </div>
+
+      <%/* table %>
+      <%// ===================================== */%>
+      <table class="table" id="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Username</th>
+            <th>Honor</th>
+            <th>Clan</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          <tr>
+            <td colspan="4">LOADING...</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+  </section>
+  <script src="/js/main.js"></script>
+</body>
+
 </html>
