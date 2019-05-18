@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title>register</title>
 	<link rel="stylesheet" href="/stylesheets/style.css">
 </head>
+
 <body>
 	<% include partials/header %>
 	<div class="form-sec">
 		<h3>Enter your e-mail and password below to login.</h3>
 		<form method="POST" action="/users/register">
-	    <input type="text" placeholder="username" name="username">
-	    <input type="email" placeholder="email" name="email">
-	    <input type="number" placeholder="Entre Batch Number" name="batch">
-	    <input type="password" placeholder="password..." name="password">
-	    <button type="submit">Submit</button>
+			<input type="text" placeholder="Codewars username" name="username">
+			<input type="email" placeholder="email" name="email">
+			<input type="number" placeholder="Entre Batch Number" name="batch">
+			<input type="password" placeholder="password..." name="password">
+			<button type="submit">Submit</button>
 		</form>
 		<h5>Already have an account? sign in!</h5>
 		<a href="/users/login"><button>Sign in!</button></a>
 	</div>
 </body>
+
 </html>

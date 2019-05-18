@@ -17,6 +17,7 @@ var userSchema = new Schema({
     username: {
         type: String,
         required: true,
+        unique: true,
     },
     password: {
         type: String,
@@ -26,7 +27,7 @@ var userSchema = new Schema({
     },
     batch: {
         type: Number,
-        // required: true
+        required: true
     },
     codewars: {
         type: Object,
