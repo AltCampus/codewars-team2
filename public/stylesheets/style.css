@@ -170,14 +170,15 @@ body {
   display: grid;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
+  margin: 20px 0;
 }
 .dropdown-div {
   display: flex;
   justify-content: flex-end;
+  margin-bottom: 20px;
 }
 .toggleButtons {
-  margin-right: 2rem;
+  margin-left: 2rem;
 }
 .btn {
   background-color: rgb(38, 39, 41);

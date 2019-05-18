@@ -5,16 +5,16 @@ var bootStrapped = require('../controller/bootstrapped');
 
 
 /* GET home page. */
-router.get('/', authController.isUserLoggedIn, (req, res, next) => {
+router.get('/', (req, res, next) => {
   res.render('index', { title: 'AltWars' });
 });
 
 // rendering dashboard
-router.get('/dashboard', function (req, res, next) {
+router.get('/dashboard',authController.isUserLoggedIn, function (req, res, next) {
   res.render('dashboard');
 });
 
-router.get('/weekly', function (req, res, next) {
+router.get('/weekly',authController.isUserLoggedIn, function (req, res, next) {
   res.render('weekly');
 });
 
