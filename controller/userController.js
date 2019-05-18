@@ -11,7 +11,7 @@ module.exports = {
 		User.findOne({ email: req.body.email }, (err, user) => {
 			if (err) return next(err);
 			if (!user) {
-				return res.status(400).redirect('/users/registerUser');
+				return res.status(400).redirect('/users/register');
 			}
 			if (user) {
 

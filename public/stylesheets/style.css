@@ -71,7 +71,7 @@ body {
   display: grid;
   align-items: center;
   justify-content: center;
-  padding: 10rem 0;
+  margin-top: 20px;
 }
 .dropdown-div {
   display: flex;
