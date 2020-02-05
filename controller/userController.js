@@ -1,6 +1,6 @@
 var User = require('../models/User');
-const bcrypt = require('bcrypt');
 const fetch = require('node-fetch');
+
 
 module.exports = {
 	login_Form: function (req, res, next) {
@@ -10,11 +10,12 @@ module.exports = {
 	login: function (req, res, next) {
 		User.findOne({ email: req.body.email }, (err, user) => {
 			if (err) return next(err);
-			if (!user) {
+			if (!user) {				
 				return res.status(400).redirect('/users/register');
 			}
 			if (user) {
-				var result = user.validatePassword(req.body.password);				
+				var result = user.validatePassword(req.body.password);
+
 				if (!result) {
 					return res.status(400).redirect('/users/login');
 				} else if (result) {
