@@ -3,7 +3,11 @@
 
 // DECLARING GLOBAL VARIABLES AND CONSTANTS //
 // The url to fetch the data from backend from
-const API_URL = "http://localhost:3000/api/v1/users";
+// const API_URL = "http://localhost:3000/api/v1/users";
+
+// heroku API_URL
+const API_URL = "https://codewars-score-tracker.herokuapp.com/users";
+
 // IDs
 const TABLE_BODY_ID = "tableBody"
 const ASCENDING_BTN = "ascendingBtn";
