@@ -1,7 +1,11 @@
 // weekly LEADERBOARD JSCODE // 
 
 
-const API_URL = "http://localhost:3000/api/v1/weekly";
+// const API_URL = "http://localhost:3000/api/v1/weekly";
+
+// heroku API_URL
+const API_URL = "https://codewars-score-tracker.herokuapp.com/weekly";
+
 // IDs
 const TABLE_BODY_ID = "tableBodyw"
 const ASCENDING_BTN = "ascendingBtnw";
