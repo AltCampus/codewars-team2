@@ -9,8 +9,8 @@
 <body>
 	<header class="header">
 		<nav>
+			<li><a href="/" class="logo">CodeWars Score Trcaker</i></a></li>
 			<ul>
-				<li><a href="/"><i class="fas fa-code"></i></a></li>
 				<% if(user){ %>
 					<li class="li">
 						<div class="user-profile">
@@ -19,11 +19,21 @@
 						<% } %>
 
 						</div>
-						<a href="/users/logout">logout</a>
+						<a href="/users/logout">
+							<button class='hdr-btn'>Logout</button>
+						</a>
 					</li>
 				<% } else { %>
-					<li><a href="/users/login">login</a></li>
-					<li><a href="/users/register">signup</a></li>
+					<li>
+						<a href="/users/register">
+							<button class='hdr-btn'>Register</button>
+						</a>
+					</li>
+					<li>
+						<a href="/users/login">
+							<button class='hdr-btn'>Login</button>
+						</a>
+					</li>
 				<% } %>
 			</ul>
 		</nav>

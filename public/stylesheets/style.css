@@ -187,6 +187,7 @@ body {
   border: 1px solid black;
   padding: 5px 15px;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .dropdown {
@@ -229,14 +230,14 @@ body {
 /*header section*/
 /*======================================*/
 .header {
-  padding: 20px;
+  padding: 10px;
   background: #000;
   /*display: flex;*/
   color: darkred;
   /*justify-content: space-between;*/
 }
 
-.header nav ul {
+.header nav, .header nav ul {
   list-style: none;
   display: flex;
   justify-content: space-between;
@@ -270,7 +271,7 @@ nav ul li {
   padding: 30px 50px;
   position: absolute;
   border-radius: 4px;
-  top: 40%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -490,4 +491,27 @@ form {
   color: #1c6671;
   font-style: italic;
   font-weight: 900;
+}
+
+
+.logo {
+  font-size: 26px;
+  font-weight: bold;
+  columns: #f3f3f3;
+}
+
+.hdr-btn {
+  background-color: #00d1b2;
+  margin: 10px;
+  font-size: 16px;
+  padding: 10px 20px;
+  outline: 0;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  cursor: pointer;
 }
