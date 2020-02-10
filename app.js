@@ -1,3 +1,4 @@
+require('dotenv').config();
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -8,18 +9,25 @@ var session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 var authController = require('./controller/authController');
 
-mongoose.connect(
-  'mongodb://altwar:qwerty123@ds255329.mlab.com:55329/altwars',
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  },
-  err => {
-    err
-      ? console.log('mongodb not connected...')
-      : console.log('mongodb is connected...');
+var connectDb = async () => {
+  try {
+  var connection = await mongoose.connect(
+    // 'mongodb://altwar:qwerty123@ds255329.mlab.com:55329/altwars'
+    process.env.MONGO_URI,
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    });
+
+    console.log(connection, 'connection...');
+    connection ? console.log('mongodb is connected...') : console.log('mongodb not connected...')
+  }catch(err){
+    console.log(err, console.log('mlab mongodb connection err...'));
   }
-);
+}
+
+
+connectDb()
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
