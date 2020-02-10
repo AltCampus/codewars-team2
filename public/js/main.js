@@ -6,7 +6,7 @@
 // const API_URL = "http://localhost:3000/api/v1/users";
 
 // heroku API_URL
-const API_URL = "https://codewars-score-tracker.herokuapp.com/users";
+const API_URL = "https://codewars-score-tracker.herokuapp.com/api/v1/users";
 
 // IDs
 const TABLE_BODY_ID = "tableBody"
